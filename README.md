@@ -4,6 +4,9 @@
 
 This project develops a hybrid machine learning system for automatic cattle behaviour classification and anomaly detection using 50 Hz tri-axial accelerometer data. The system combines **LightGBM** for supervised behaviour classification and an **LSTM Autoencoder** for unsupervised anomaly detection, enabling both high-accuracy behaviour recognition and early health issue detection.
 
+![](photo.png)
+
+
 ---
 
 ## 📂 Dataset
