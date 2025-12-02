@@ -1,105 +1,98 @@
-Automated Livestock Behaviour Classification and Anomaly Detection Using Hybrid Machine Learning
-📌 Overview
+# Automated Livestock Behaviour Classification & Anomaly Detection (Hybrid ML System)
 
-This project builds a hybrid machine-learning system that automatically classifies cattle behaviour and detects abnormal movement patterns using accelerometer data.
-The system combines a LightGBM classifier for supervised behaviour prediction and an LSTM Autoencoder for unsupervised anomaly detection, enabling both accurate behaviour recognition and early disease indication.
+## 📌 Overview
 
-📂 Dataset
+This project develops a hybrid machine learning system for automatic cattle behaviour classification and anomaly detection using 50 Hz tri-axial accelerometer data. The system combines **LightGBM** for supervised behaviour classification and an **LSTM Autoencoder** for unsupervised anomaly detection, enabling both high-accuracy behaviour recognition and early health issue detection.
 
-17 days of tri-axial accelerometer data (X, Y, Z) recorded at 50 Hz
+---
 
-Includes behaviours such as grazing, rumination, resting, standing, and walking
+## 📂 Dataset
 
-Preprocessed using windowing, normalization, and feature extraction
+* **17 days of tri-axial accelerometer recordings (X, Y, Z) at 50 Hz**
+* Captures grazing, rumination, resting, walking, and standing behaviours
+* Includes preprocessed windows, normalization, and feature extraction steps
 
-✨ Features Used
-Time-Domain Features
+---
 
-Signal Magnitude Area (SMA)
+## ✨ Feature Engineering
 
-Euclidean Norm Minus One (ENMO)
+### Time-Domain Features
 
-Jerk Energy
+* Signal Magnitude Area (SMA)
+* Euclidean Norm Minus One (ENMO)
+* Jerk Energy
+* Total Acceleration
 
-Total Acceleration
+### Frequency-Domain Features
 
-Frequency-Domain Features
+* Power Spectral Density (PSD)
+* Behaviour-specific frequency bands to separate static vs active behaviours
 
-Power Spectral Density (PSD) across behaviour-specific frequency bands
+---
 
-Helps resolve confusion in static behaviours (standing vs lying)
+## 🧠 Model Architecture
 
-🧠 Model Architecture
-1. Supervised Behaviour Classification (LightGBM)
+### **1. LightGBM Classifier (Supervised)**
 
-Input: Engineered statistical + frequency features
+* Trained on engineered time + frequency domain features
+* Predicts: Grazing, Rumination, Resting, Walking
+* Achieved **99.98% accuracy**
 
-Output Behaviours: Grazing, Rumination, Resting, Walking
+### **2. LSTM Autoencoder (Unsupervised)**
 
-Achieved 99.98% accuracy
+* Learns patterns from normal motion sequences
+* Reconstruction error used as anomaly score
+* Detects limping, trembling, unusual gait, and unseen abnormalities
 
-2. Unsupervised Anomaly Detection (LSTM Autoencoder)
+---
 
-Trained on normal behaviour sequences
+## 🚀 Results
 
-Reconstruction error used as anomaly score
+* **99.98% classification accuracy** using LightGBM
+* High reconstruction-error separation for anomaly detection
+* PSD features resolved misclassification issues in static behaviours
+* End-to-end system is lightweight and suitable for real-time edge deployment
 
-Detects gait issues like limping, trembling, or unknown abnormalities
+---
 
-🚀 Key Results
+## 🔧 Workflow
 
-99.98% classification accuracy using LightGBM
+1. Preprocessing (windowing + normalization)
+2. Feature extraction (time & frequency domain)
+3. Train LightGBM classifier
+4. Train LSTM Autoencoder
+5. Evaluate hybrid system
+6. Deploy for real-time inference
 
-Strong anomaly detection with large error difference between normal vs abnormal patterns
+---
 
-PSD features fixed long-standing misclassification problems
+## 📌 Applications
 
-Suitable for real-time, low-power edge deployment
+* Precision livestock farming
+* Real-time cattle monitoring
+* Early disease/health anomaly detection
+* IoT/edge-enabled livestock analytics
 
-📌 Project Workflow
+---
 
-Data preprocessing (windowing + normalization)
+## 📘 Future Enhancements
 
-Feature engineering (time & frequency domain)
+* Add GPS, temperature, and audio sensors
+* Deploy fully on microcontrollers (ESP32/ARM)
+* Use transformer-based time series encoders
+* Adaptive anomaly thresholds
+* Dashboard for farmers and veterinarians
 
-Train LightGBM classifier
+---
 
-Train LSTM Autoencoder for anomaly detection
+## 👨‍💻 Author
 
-Evaluate supervised + unsupervised performance
-
-Integrate into a hybrid decision framework
-
-📑 Applications
-
-Precision livestock farming
-
-Early disease detection
-
-Automated cattle monitoring systems
-
-Real-time farm analytics on edge devices
-
-📘 Future Scope
-
-Use transformer-based time-series models
-
-Deploy on microcontrollers (ESP32/ARM Cortex)
-
-Add temperature, GPS, audio sensors
-
-Adaptive anomaly thresholding
-
-Build a farmer-friendly dashboard
-
-👨‍💻 Author
-
-Ankur Gupta
+**Ankur Gupta**
 7th Semester Academic Project
-B.Tech – Computer Science & Engineering
+B.Tech, Department of CSE
 Indian Institute of Information Technology (IIIT) Guwahati
 
-👩‍🏫 Supervisor
+## 👩‍🏫 Supervisor
 
-Dr. Moumita Roy
-Assistant Professor, IIIT Guwahat
+**Dr. Moumita Roy**
+Assistant Professor, IIIT Guwahati
